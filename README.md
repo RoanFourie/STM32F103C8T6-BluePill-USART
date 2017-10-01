@@ -1,11 +1,11 @@
 Date: 2017-Week-39  
 Status: Working.  
 
-# Blink the LED. When User Button is pressed, stop the LED. STM32-Blue Pill board (STM32F103C8T6)  
+# STM32F103 - Working with the USART on the free EmBitz IDE in Windows. Basics STM32-BluePill board (STM32F103C8T6)  
   
 ## Introduction:  
 Getting started with the STM32-Blue Pill generic board using the free [EmBitz IDE](https://www.embitz.org/) on Windows.  
-To blink the LED and stop it when user button is pressed. (The button is and external added button on port B15)  
+To work with the USART.  
 Done using the Standard Peripheral Library, no HAL drivers were used.  
 
 ---
