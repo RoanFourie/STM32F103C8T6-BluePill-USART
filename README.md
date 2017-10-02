@@ -21,10 +21,22 @@ Done using the Standard Peripheral Library, no HAL drivers were used.
 ---
 
 ## Useful Links:  
+[Example on Github](https://github.com/artem-smotrakov/stm32f103-usb-commands/blob/master/main.c)  
+
+
+[Gypsyengineer.com - STM32 USART sending text commands](https://blog.gypsyengineer.com/fun/stm32-usart-sending-text-commands.html)  
+
+
 [stm32duino - Blue Pill Official](http://wiki.stm32duino.com/index.php?title=Blue_Pill)  
 [Pinout Diagram](http://wiki.stm32duino.com/images/a/ae/Bluepillpinout.gif)  
 [ST Microelectronics STM32 ARM MCU Site](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html)  
-[STM32 Info](http://www.emcu.it/STM32.html) @ emcu 
+[STM32 Info](http://www.emcu.it/STM32.html) @ emcu  
+
+
+[A template project for STM32 on Linux](https://blog.gypsyengineer.com/fun/a-template-project-for-stm32f103-on-linux.html)  
+[Limit the current – take care of your favorite LED](https://blog.gypsyengineer.com/fun/limit-the-current-take-care-of-your-favorite-led.html)  
+[GETTING STARTED WITH STM32 ARM CORTEX-M3 USING GCC (STM32F103, NUCLEO-F103RB)](http://electronut.in/stm32-start/)  
+[LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)  
 
 ---  
 

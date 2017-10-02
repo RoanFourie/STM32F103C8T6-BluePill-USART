@@ -74,6 +74,18 @@ void USART1_Init(void)
 }
 
 /**********************************************************
+ * USART1 Send a string of data
+ *********************************************************/
+void usart1_send_string(const char *s)
+{
+    int i = 0;
+    while (s[i])
+    {
+        USART_SendData(USART1, s[i++]);
+    }
+}
+
+/**********************************************************
  * USART1 interrupt request handler: on reception of a
  * character 't', toggle LED and transmit a character 'T'
  *********************************************************/
@@ -100,6 +112,7 @@ void USART1_IRQHandler(void)
     /* ------------------------------------------------------------ */
     /* Other USART1 interrupts handler can go here ...             */
 }
+
 
 int main(void)
 {
