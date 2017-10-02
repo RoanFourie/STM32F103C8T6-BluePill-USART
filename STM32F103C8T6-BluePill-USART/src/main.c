@@ -7,13 +7,16 @@
 /*
    AUTHOR:          Roan Fourie
    DATE CREATED:    2017-Week-39
-   DATE CHANGED:    2017-Week-39
+   DATE CHANGED:    2017-Week-40
 
 **********************************************************************/
 #include "stm32f10x_conf.h"
 #include "rf_stm32f1_led.h"
 #include "rf_stm32f1_delay.h"
 
+/**********************************************************
+ * Setup a User Push Button on Port B15
+ *********************************************************/
 static void button_setup(void)
 {
     GPIO_InitTypeDef  GPIO_InitStructure;
@@ -74,20 +77,29 @@ void USART1_Init(void)
 }
 
 /**********************************************************
- * USART1 Send a string of data
+ * USART Send a character
  *********************************************************/
-void usart1_send_string(const char *s)
+void UU_PutChar(USART_TypeDef* USARTx, uint8_t ch)
 {
-    int i = 0;
-    while (s[i])
-    {
-        USART_SendData(USART1, s[i++]);
-    }
+  while(!(USARTx->SR & USART_SR_TXE));
+  USARTx->DR = ch;
+}
+
+/**********************************************************
+ * USART Send a string of data
+ *********************************************************/
+void UU_PutString(USART_TypeDef* USARTx, uint8_t * str)
+{
+  while(*str != 0)
+  {
+    UU_PutChar(USARTx, *str);
+    str++;
+  }
 }
 
 /**********************************************************
  * USART1 interrupt request handler: on reception of a
- * character 't', toggle LED and transmit a character 'T'
+ * character 't', transmit a string
  *********************************************************/
 void USART1_IRQHandler(void)
 {
@@ -97,8 +109,8 @@ void USART1_IRQHandler(void)
         /* If received 't', toggle LED and transmit 'T' */
         if((char)USART_ReceiveData(USART1) == 't')
         {
-            //led_toggle();
-            USART_SendData(USART1, 'Hello');
+            /* Other actions like toggle LED can also be performed here */
+            UU_PutString(USART1, "Hello\r\n");
             /* Wait until Tx data register is empty, not really
              * required for this example but put in here anyway.
              */
@@ -136,6 +148,7 @@ int main(void)
       } else {
         FM_Led_Off(LED_2);
         FM_Led_Off(LED_1);
+        UU_PutString(USART1, "Button Pushed\r\n");
       }
         // Delay for half second
        delay_ms(500);
